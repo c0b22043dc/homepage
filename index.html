@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<meta charset ="utf-8"> 
+<html>
+    <head>
+        <title>最初の画面</title>
+        <style>
+        .part-img{
+        background-image:url("木目調.jpg");  /* 画像のURLを指定       */
+        background-repeat:  no-repeat;                         /* 画像の繰り返しを指定  */              
+        background-position:center center;                     /* 画像の表示位置を指定  */
+        /*background-size:cover;/*                             /* 画像のサイズを指定    */
+        background-size: 100% 100%;
+        }
+        .slider {
+        width: 300px;
+        height: 200px;
+        overflow: hidden;
+        margin: 0 auto;
+
+        }
+        .slider-item {
+        width: 300px;
+        float: left;
+        }
+        img{
+        width:100%;
+        }
+        .slider-inner {
+        width: 300%;
+        animation: slider 10s infinite ease;
+        }
+        @keyframes slider {
+            0% {
+            transform: translateX(0);
+            }
+            33% {
+            transform: translateX(-300px);
+            }
+            66% {
+            transform: translateX(-600px);
+            }
+            100% {
+            transform: translateX(0);
+            }
+            
+        }
+        .scale-img {
+        width: 250px; /*画像の幅*/
+        height: 175px; /*画像の高さ*/
+        transition-duration: 0.5s; /*変化の時間*/
+        }
+        .scale-img:hover {
+        transform: scale(1.2,1.2); /*画像の拡大*/
+        cursor: pointer; /*カーソルをポインターにする*/
+        }
+        .parentLeft{
+    width: 100%;
+	box-sizing:border-box;
+	animation-name:LIneAnime1;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+	position: relative;
+	overflow: hidden;/*はみ出た色要素を隠す*/
+	opacity:0;
+  margin: 0 auto;
+  text-align: center;
+}
+@keyframes LIneAnime1{
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;  
+}
+}
+/*出てくるテキスト*/
+.childLeft{
+  font-weight: bold;
+  color: teal;
+	animation-name:innerText;
+	animation-duration:1s;
+	animation-delay: 0.5s;/*テキストは少し遅れて出てくる*/
+	animation-fill-mode:forwards;
+	opacity: 0;
+}
+@keyframes innerText{
+	0% {
+	opacity: 0;
+	}
+	100% {
+	opacity: 1;
+}
+}
+.bgLine::before{
+	animation-name:Line;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+  animation-timing-function: ease-in-out;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: teal;/*伸びる背景色*/
+}
+@keyframes Line{
+	0% {
+		transform-origin:left;/*変形の中心を左に指定*/
+		transform:scaleX(0);/*要素の拡大縮小（0）で非表示*/
+	}
+	50% {
+		transform-origin:left;
+		transform:scaleX(1);/*左から元のサイズに*/
+	}
+	50.001% {
+		transform-origin:right;
+	}
+	100% {
+		transform-origin:right;/*変形の中心を右に指定*/
+		transform:scaleX(0);/*要素の拡大縮小（0）で非表示*/
+	}
+}
+.locate {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+.menu-bar {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* メニューバーのリンクのスタイル */
+.menu-bar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* メニューバーのリンクのホバー時のスタイル */
+.menu-bar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* メニューバーのアクティブなリンクのスタイル */
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.img-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* 拡大表示される画像のスタイル */
+.img-zoom {
+  position: absolute;
+  display: none;
+  width: 200px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* マウスポインタが画像に乗ったときのイベント */
+.img-container:hover .img-zoom {
+  display: block;
+}
+
+/* 拡大される画像のスタイル */
+.img-zoom img {
+  width: 100%;
+  height: auto;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* テキストのスタイル */
+.fade-in-text {
+  opacity: 0; /* 最初は透明 */
+  animation: fade-in 2s ease-in-out forwards; /* フェードインアニメーションを2秒かけて実行 */
+}
+
+       
+        </style>
+        
+    </head>
+    <body bgcolor="#fafad2">
+        <table bgcolor ="white" border ="0" cellpadding ="0" sellspacing ="0" width ="100%">
+            <tr>
+                <td width ="100%" height ="200" align ="center"><div class="parentLeft bgLine"><span class="childLeft"><h2>あなたの未来をアドセンス</h2></span><img src ="S__63356933_0.jpg" width ="100%" height ="100%""></div>
+                    </td>
+            </tr>
+        </table>        
+        <div><center><h1>株式会社アドセンス</h1></center></div>
+        
+        <br>
+        <br>
+<!--修正中--!>
+	<div class="menu-bar">
+  	<a class="active" href="#home">社内SNS</a>
+  	<a href="#about">会社概要</a>
+	<a href="#contact">お問い合わせ</a>
+  	<a href="#access">アクセス</a>
+	</div>
+<!--修正中--!>
+
+        <!--タブのメニュー部分-->
+        <table width ="95%" align ="center" cellpadding="0" cellspacing="0">
+            <tr>
+                <td width ="100%" align ="center">
+                   <!-- <marquee behavior ="slide" direction ="left" throwsped ="20"><a href ="" target ="_blank" alt ="会社"><img src=""></a></marquee>-->
+
+                </td> 
+            </tr>
+        </table>
+        <br>
+        <br>
+<div class ="fade-in-text">
+        <p style="opacity:0.5"><center><font size ="7" face ="MS 明朝,平成明朝" color =""><h3><b>STRENGTH</b></h3></font></center></p></div>
+    
+        <!--<marquee behavior ="slide" direction ="right" throwspeed ="nomal" truespeed ="30"><img src="" width ="200" height ="200"></marquee>-->
+    
+                
+        <font size ="7" face ="MS 明朝,平成明朝" color =""><h3><b>良心な適正価格</b></h3></font>: 私たちのホームページ作成プランは最安4,980円で作成から運用までサポート！サブスク型のプランとなっております。</li>
+                <li><font size ="7" face ="MS 明朝,平成明朝" color =""><h3><b>迅速な対応</b></h3></font>: ホームページ作成依頼から最短で翌日に運用！</li>
+                <li><font size ="7" face ="MS 明朝,平成明朝" color =""><h3><b>サポート内容が充実</b></h3></font>: ホームページの作成はもちろん、SNS運用、動画作成などetc...幅広いサービスをお客様に提供</li>
+                
+            </ul>
+            
+            
+        </section>
+        <hr>
+        <p><h1>サービス提供情報</h1></p>
+        <hr>
+        <!DOCTYPE html>
+
+   
+
+    <section id="services">
+        <h2>提供するサービス</h2>
+        <p>私たちは以下のサービスを提供しています：</p>
+        <table width ="1200" border ="0" align ="center" cellspacing ="0" celpadding = "0">
+            <tr>
+
+                <td width ="400" height ="300" align ="center"><a href ="" target ="_blank"><div class ="scale-img:hover"><img src ="S__63356932_0.jpg" width ="400" height ="300"></div></a>
+                </td>
+
+                <td width ="400" height ="300" align ="center"><a href ="" target ="_blank"><img src ="S__63356930_0.jpg" width ="400" height ="300"></a>
+                </td>
+                <td width ="400" height ="300" align ="center"><a href ="" target ="_blank"><img src ="S__63356936.jpg" width ="400" height ="300"></a>
+
+                </td>
+            </tr>
+        </table>
+     
+        
+  
+
+        <table bgcolor ="#696969" width ="1200" border ="0" cellpadding ="0" cellspacing ="0" align ="center">
+            <tr>
+                <td width ="400"" height ="" align ="center">
+                <hr><p><h1><font color ="ffffff" >連絡先</font></h1><font color ="ffffff">TEL : 080-8869-4042</font></p>
+        <hr>
+        <p><h1><font color ="ffffff">代表者</font></h1>
+        <font color ="ffffff">鈴木勝太</font></p>
+        <p>
+        <h1><font color ="ffffff">副代表者</font></h1>
+        <font color ="ffffff">加藤大陸</font></p>
+        
+        </td> 
+        <td width ="300" height ="" align ="center"><a href ="" target ="_blank"><img src ="lineアイコン.png" width ="300" height ="300"></a></td>
+        <td width ="300" height ="" align ="center"><a href ="" target ="_blank"><img src ="インスタアイコン.png" width ="300" height ="300"></a></td>
+        </tr>
+        </table       
+        
+    </body>
+</html>
